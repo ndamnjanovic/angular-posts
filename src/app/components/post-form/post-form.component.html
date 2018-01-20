@@ -3,15 +3,36 @@
   <form #postForm="ngForm" (ngSubmit)="submit()">
     <div class="form-group">
       <label>Title</label>
-      <input [(ngModel)]="newPost.title" name="title" type="text" class="form-control" required minlength="2">
+      <input #title="ngModel" [(ngModel)]="newPost.title" name="title" type="text" class="form-control" required minlength="2">
+      <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+        <div *ngIf="title.errors.required">
+          Title is required.
+        </div>
+        <div *ngIf="title.errors.minlength">
+          Title must be at least 2 characters long.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label>Text</label>
-      <input [(ngModel)]="newPost.text" name="text" type="text" class="form-control" required maxlength="300">
+      <input #text="ngModel" [(ngModel)]="newPost.text" name="text" type="text" class="form-control" required maxlength="300">
+      <div *ngIf="text.invalid && (text.dirty || text.touched)" class="alert alert-danger">
+        <div *ngIf="text.errors.required">
+          Text is required.
+        </div>
+        <div *ngIf="text.errors.minlength">
+          Text must be at less than 300 characters long.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label>Created at</label>
-      <input [(ngModel)]="newPost.created_at" name="created_at " type="text" class="form-control" required>
+      <input #createdAt="ngModel" [(ngModel)]="newPost.created_at" name="created_at " type="text" class="form-control" required>
+      <div *ngIf="createdAt.invalid && (createdAt.dirty || createdAt.touched)" class="alert alert-danger">
+        <div *ngIf="createdAt.errors.required">
+          Created at is required.
+        </div>
+      </div>
     </div>
     <div class="input-group col-md-5 pl-0 my-lg-4 my-2">
       <button [disabled]="!postForm.valid" type="submit" class="btn btn-primary mr-2">Add</button>
