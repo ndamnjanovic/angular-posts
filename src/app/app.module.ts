@@ -5,6 +5,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { AppComponent } from "./app.component";
 import { LayoutComponent } from "./components/layout/layout.component";
 import { PostsComponent } from "./components/posts/posts.component";
+import { PostsService } from "./services/posts.service";
+import { SinglePostComponent } from "./components/single-post/single-post.component";
 
 const appRoutes: Routes = [
   {
@@ -15,13 +17,22 @@ const appRoutes: Routes = [
   {
     path: "posts",
     component: PostsComponent
+  },
+  {
+    path: "post/:id",
+    component: SinglePostComponent
   }
 ];
 
 @NgModule({
-  declarations: [AppComponent, LayoutComponent, PostsComponent],
+  declarations: [
+    AppComponent,
+    LayoutComponent,
+    PostsComponent,
+    SinglePostComponent
+  ],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
-  providers: [],
+  providers: [PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

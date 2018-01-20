@@ -1,3 +1,13 @@
-<p>
-  posts works!
-</p>
+<div class="container mt-5">
+
+  <ul>
+    <li class="row mt-2" *ngFor="let post of posts">
+      <div class="col-sm-4">{{post.title}}</div>
+      <div class="col-sm-2 pull-right">
+        <a [routerLink]="['/post', post.id]">View Post</a>
+      </div>
+    </li>
+
+  </ul>
+
+</div>
