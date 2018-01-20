@@ -9,6 +9,7 @@ import { PostsComponent } from "./components/posts/posts.component";
 import { PostsService } from "./services/posts.service";
 import { SinglePostComponent } from "./components/single-post/single-post.component";
 import { PostFormComponent } from "./components/post-form/post-form.component";
+import { CommentFormComponent } from './components/comment-form/comment-form.component';
 
 const appRoutes: Routes = [
   {
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     LayoutComponent,
     PostsComponent,
     SinglePostComponent,
-    PostFormComponent
+    PostFormComponent,
+    CommentFormComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule],
   providers: [PostsService],

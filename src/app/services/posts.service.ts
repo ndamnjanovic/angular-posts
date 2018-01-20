@@ -11,21 +11,24 @@ export class PostsService {
       1,
       "Moj prvi post",
       "Ovo je tekst mog prvog posta",
-      "20.01.2018"
+      "20.01.2018",
+      []
     );
 
     let secondPost = new Post(
       2,
       "Moj drugi post",
       "Ovo je tekst mog drugog posta",
-      "20.01.2018"
+      "20.01.2018",
+      []
     );
 
     let thirdPost = new Post(
       3,
       "Moj treci post",
       "Ovo je tekst mog treceg posta",
-      "20.01.2018"
+      "20.01.2018",
+      []
     );
 
     // we're adding posts by using method
@@ -56,5 +59,19 @@ export class PostsService {
     // we will use splice function
     // to replace old post with a new one
     this.posts.splice(this.posts.indexOf(post), 1, post);
+  }
+
+  public deletePost(post: Post) {
+    this.posts.splice(this.posts.indexOf(post), 1);
+  }
+
+  public addComment(id: number, comment: Comment) {
+    let post = this.posts.find((p: Post) => p.id === id);
+
+    if (post.comments) {
+      post.comments.push(comment);
+    } else {
+      post.comments = [comment];
+    }
   }
 }

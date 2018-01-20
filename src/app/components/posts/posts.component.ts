@@ -23,4 +23,8 @@ export class PostsComponent implements OnInit {
       Created at: ${post.created_at}
     `);
   }
+
+  public delete(post) {
+    this.postsService.deletePost(post);
+  }
 }

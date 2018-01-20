@@ -5,4 +5,14 @@
 
   <p class="mt-5">{{post.text}}</p>
 
+
+  <h6 class="mt-5">Comments</h6>
+  <ul>
+    <li *ngFor="let comment of post.comments">
+      <span>{{comment.username}}: {{comment.text}}</span>
+    </li>
+  </ul>
+
+  <app-comment-form (onSubmit)="addComment($event)"></app-comment-form>
+
 </div>

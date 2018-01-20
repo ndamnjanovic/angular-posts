@@ -22,4 +22,8 @@ export class SinglePostComponent implements OnInit {
       this.post = this.postsService.getById(params["id"]);
     });
   }
+
+  addComment(comment) {
+    this.postsService.addComment(this.post.id, comment);
+  }
 }
