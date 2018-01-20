@@ -15,6 +15,10 @@
     </div>
     <div class="input-group col-md-5 pl-0 my-lg-4 my-2">
       <button [disabled]="!postForm.valid" type="submit" class="btn btn-primary mr-2">Add</button>
+      <button type="button" class="btn btn-default mr-2" (click)="postForm.reset()" [disabled]="postForm.form.pristine">
+        Reset
+      </button>
+
     </div>
   </form>
 </div>
