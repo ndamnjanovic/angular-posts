@@ -3,15 +3,15 @@
   <form #postForm="ngForm" (ngSubmit)="submit()">
     <div class="form-group">
       <label>Title</label>
-      <input [(ngModel)]="newPost.title" name="title" type="text" class="form-control">
+      <input [(ngModel)]="newPost.title" name="title" type="text" class="form-control" required minlength="2">
     </div>
     <div class="form-group">
       <label>Text</label>
-      <input [(ngModel)]="newPost.text" name="text" type="text" class="form-control">
+      <input [(ngModel)]="newPost.text" name="text" type="text" class="form-control" required maxlength="300">
     </div>
     <div class="form-group">
       <label>Created at</label>
-      <input [(ngModel)]="newPost.created_at" name="text" type="text" class="form-control">
+      <input [(ngModel)]="newPost.created_at" name="created_at " type="text" class="form-control" required>
     </div>
     <div class="input-group col-md-5 pl-0 my-lg-4 my-2">
       <button [disabled]="!postForm.valid" type="submit" class="btn btn-primary mr-2">Add</button>
