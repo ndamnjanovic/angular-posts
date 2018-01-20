@@ -6,8 +6,12 @@
       <div class="col-sm-2 pull-right">
         <a [routerLink]="['/post', post.id]">View Post</a>
       </div>
+      <div class="col-sm-2 pull-right">
+        <button type="button" class="btn btn-default mr-2" (click)="show(post)">
+          Preview
+        </button>
+      </div>
     </li>
-
   </ul>
 
 </div>

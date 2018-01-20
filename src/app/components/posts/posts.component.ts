@@ -15,4 +15,12 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.posts = this.postsService.getPosts();
   }
+
+  public show(post) {
+    alert(`
+      Title: ${post.title},
+      Text: ${post.text},
+      Created at: ${post.created_at}
+    `);
+  }
 }
