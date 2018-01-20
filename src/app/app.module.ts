@@ -27,6 +27,10 @@ const appRoutes: Routes = [
   {
     path: "add",
     component: PostFormComponent
+  },
+  {
+    path: "edit/:id",
+    component: PostFormComponent
   }
 ];
 

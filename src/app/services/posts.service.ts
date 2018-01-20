@@ -35,13 +35,6 @@ export class PostsService {
     this.addPost(thirdPost);
   }
 
-  public addPost(post: Post) {
-    post.id = this.idCount;
-    this.posts.push(post);
-
-    this.idCount++;
-  }
-
   public getPosts() {
     return this.posts;
   }
@@ -50,5 +43,18 @@ export class PostsService {
     // since we're getting id as a string
     // we need to parse it to Integer (number) when comparing
     return this.posts.find((p: Post) => p.id === parseInt(id, 10));
+  }
+
+  public addPost(post: Post) {
+    post.id = this.idCount;
+    this.posts.push(post);
+
+    this.idCount++;
+  }
+
+  public editPost(post: Post) {
+    // we will use splice function
+    // to replace old post with a new one
+    this.posts.splice(this.posts.indexOf(post), 1, post);
   }
 }
